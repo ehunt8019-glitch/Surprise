@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Guffy 💫</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300&display=swap');
+    body {
+        margin: 0;
+        height: 100vh;
+        background: radial-gradient(circle at top, #0a0a0a, #000);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+    }
+
+    .stars {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        overflow: hidden;
+        z-index: 0;
+    }
+
+    .stars span {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: white;
+        animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+    }
+
+    .container {
+        z-index: 2;
+        text-align: center;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-family: 'Great Vibes', cursive;
+        font-size: 2.5rem;
+        color: #ffcbcb;
+        animation: fadeIn 3s ease-in-out;
+    }
+
+    p {
+        font-family: 'Poppins', sans-serif;
+        color: #ddd;
+        font-size: 1rem;
+        margin-top: 1rem;
+        animation: fadeInText 4s ease-in-out;
+    }
+
+    .gallery {
+        margin-top: 2rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .gallery img {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+        opacity: 0;
+        transform: scale(0.8);
+        animation: zoomIn 2s forwards ease-in-out;
+    }
+
+    .gallery img:nth-child(1) { animation-delay: 1s; }
+    .gallery img:nth-child(2) { animation-delay: 2s; }
+    .gallery img:nth-child(3) { animation-delay: 3s; }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInText {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    footer {
+        position: absolute;
+        bottom: 10px;
+        font-size: 0.9rem;
+        color: #aaa;
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
+</head>
+<body>
+<div class="stars"></div>
+
+<div class="container">
+    <h1>💖 Till we meet again under the same sky 💫</h1>
+    <p>Happy Diwali, My Guffy 😗<br>
+    Every light I see tonight feels a bit more beautiful, because somewhere, you’re smiling under the same sky. ✨</p>
+
+    <div class="gallery">
+        <img src="photo1.jpeg" alt="Her smile">
+        <img src="photo2.jpeg" alt="Us">
+        <img src="photo3.jpeg" alt="Memory">
+    </div>
+</div>
+
+<footer>With love, always — Yours 💕</footer>
+
+<script>
+  // Stars effect
+  const starsContainer = document.querySelector('.stars');
+  for (let i = 0; i < 80; i++) {
+      const star = document.createElement('span');
+      const size = Math.random() * 2 + 'px';
+      star.style.width = size;
+      star.style.height = size;
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 5 + 's';
+      starsContainer.appendChild(star);
+  }
+
+  // Background music
+  const audio = new Audio("music.mpeg"); // make sure file exists in same folder
+  audio.volume = 0.3;
+  audio.loop = true;
+
+  window.addEventListener('load', () => {
+      audio.play().catch(err => {
+          console.log("Autoplay blocked, click to play music");
+      });
+  });
+
+  document.addEventListener('click', () => {
+      if (audio.paused) {
+          audio.play();
+      } else {
+          audio.pause();
+      }
+  });
+</script>
+</body>
+</html>
